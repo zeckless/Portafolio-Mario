@@ -1,5 +1,6 @@
 import { Layers } from "lucide-react";
 import TechIcon from "./TechIcon";
+import { Meteors } from "./ui/Meteors";
 
 const groups: { label: string; items: string[] }[] = [
   {
@@ -27,6 +28,7 @@ const groups: { label: string; items: string[] }[] = [
 export default function StackCard() {
   return (
     <div className="card p-5 h-full">
+      <Meteors number={16} />
       <div className="flex items-center gap-2 mb-4">
         <span className="chip">
           <Layers size={13} strokeWidth={1.8} />

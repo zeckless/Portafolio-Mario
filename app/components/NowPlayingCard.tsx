@@ -1,6 +1,7 @@
 "use client";
 
 import { ExternalLink, Music, Pause, Play } from "lucide-react";
+import { BorderBeam } from "./ui/BorderBeam";
 import { useEffect, useState } from "react";
 
 type Track = {
@@ -52,6 +53,7 @@ export default function NowPlayingCard() {
       rel="noreferrer noopener"
       className="card p-4 h-full flex flex-col gap-3 group"
     >
+      <BorderBeam colorFrom="#a855f7" colorTo="#22d3ee" duration={5000} />
       <div className="flex items-center gap-3">
         <div className="relative h-12 w-12 shrink-0 rounded-lg overflow-hidden bg-gradient-to-br from-neutral-700 via-neutral-800 to-black ring-1 ring-white/10">
           {track?.albumArt ? (

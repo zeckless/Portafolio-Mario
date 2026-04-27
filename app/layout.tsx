@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Mario Opazo — Portafolio",
   description:
-    "Estudiante de Ingeniería Civil en Computación en la Universidad de Chile. Backend, fullstack y videojuegos.",
+    "Estudiante de Ingeniería Civil en Computación en la Universidad de Chile. Desarrollo web enfocado en backend, frontend y soluciones fullstack.",
 };
 
 export default function RootLayout({

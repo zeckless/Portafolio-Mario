@@ -12,7 +12,7 @@ const experiences: Experience[] = [
   {
     org: "CIRTA",
     role: "Desarrollador — Plataforma EduRobotics",
-    period: "2025 — Presente",
+    period: "Feb 2026 — Presente",
     icon: Bot,
     accent: "from-sky-500 to-cyan-600",
   },

@@ -1,5 +1,6 @@
-import { ArrowUpRight, Code2 } from "lucide-react";
+import { ArrowUpRight, Code2, Bot, Dices, Globe } from "lucide-react";
 import TechIcon from "./TechIcon";
+import React from "react";
 
 type Project = {
   title: string;
@@ -8,6 +9,8 @@ type Project = {
   tags: string[];
   gradient: string;
   href: string;
+  icon: React.ComponentType<{ size?: number; strokeWidth?: number; className?: string }>;
+  iconColor: string;
 };
 
 const projects: Project[] = [
@@ -19,6 +22,8 @@ const projects: Project[] = [
     tags: ["FastAPI", "React", "Docker", "ROS2"],
     gradient: "from-sky-500/30 via-cyan-500/20 to-emerald-500/10",
     href: "https://www.edurobotics.cl",
+    icon: Bot,
+    iconColor: "text-sky-300/70",
   },
   {
     title: "UCasino",
@@ -28,6 +33,19 @@ const projects: Project[] = [
     tags: ["Django", "AJAX", "Scrum"],
     gradient: "from-emerald-500/30 via-teal-500/20 to-amber-500/10",
     href: "https://github.com/DCC-CC4401/2025-2-CC4401-grupo-7",
+    icon: Dices,
+    iconColor: "text-emerald-300/70",
+  },
+  {
+    title: "Olimpo PAC",
+    role: "Desarrollador Fullstack",
+    description:
+      "Sitio web para gimnasio con más de 20 años en Pedro Aguirre Cerda, Santiago. Desarrollado con Next.js, Tailwind CSS y desplegado en producción.",
+    tags: ["Next.js", "TypeScript", "Tailwind"],
+    gradient: "from-violet-500/30 via-purple-500/20 to-fuchsia-500/10",
+    href: "https://www.olimpopac.cl",
+    icon: Globe,
+    iconColor: "text-violet-300/70",
   },
 ];
 
@@ -42,7 +60,7 @@ export default function ProjectsCard() {
         <span className="text-[11px] subtle-text">{projects.length} destacados</span>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
         {projects.map((p) => {
           const isExternal = p.href.startsWith("http");
           return (
@@ -53,8 +71,9 @@ export default function ProjectsCard() {
               rel={isExternal ? "noreferrer noopener" : undefined}
               className="group relative rounded-xl overflow-hidden border border-white/[0.06] bg-white/[0.02] hover:border-white/15 transition"
             >
-              <div className={`h-24 bg-gradient-to-br ${p.gradient} relative`}>
+              <div className={`h-24 bg-gradient-to-br ${p.gradient} relative flex items-center justify-center`}>
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.12),transparent_60%)]" />
+                <p.icon size={36} strokeWidth={1.2} className={p.iconColor} />
                 <ArrowUpRight
                   size={16}
                   className="absolute top-2.5 right-2.5 text-white/70 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition"

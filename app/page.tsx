@@ -4,7 +4,7 @@ import Dock from "./components/Dock";
 import EducationCard from "./components/EducationCard";
 import ExperienceCard from "./components/ExperienceCard";
 import Hero from "./components/Hero";
-import NowPlayingCard from "./components/NowPlayingCard";
+// import NowPlayingCard from "./components/NowPlayingCard";
 import ProjectsCard from "./components/ProjectsCard";
 import StackCard from "./components/StackCard";
 
@@ -27,10 +27,10 @@ export default function Home() {
           <ProjectsCard />
         </div>
 
-        <div className="sm:col-span-1">
+        {/* <div className="sm:col-span-1">
           <NowPlayingCard />
-        </div>
-        <div id="contact" className="sm:col-span-1">
+        </div> */}
+        <div id="contact" className="sm:col-span-2">
           <ContactCard />
         </div>
 

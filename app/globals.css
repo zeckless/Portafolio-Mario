@@ -10,6 +10,7 @@
 }
 
 @theme inline {
+  --animate-meteor: meteor 6s linear infinite;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -38,13 +39,13 @@ body {
   background-image:
     radial-gradient(
       ellipse 80% 60% at 50% 35%,
-      rgba(46, 110, 200, 0.28) 0%,
-      rgba(46, 110, 200, 0.12) 30%,
+      rgba(110, 50, 220, 0.28) 0%,
+      rgba(110, 50, 220, 0.10) 30%,
       rgba(5, 5, 7, 0) 70%
     ),
     radial-gradient(
       ellipse 60% 40% at 50% 80%,
-      rgba(80, 180, 200, 0.18) 0%,
+      rgba(160, 60, 200, 0.14) 0%,
       rgba(5, 5, 7, 0) 65%
     );
   background-attachment: fixed;
@@ -122,6 +123,13 @@ body {
   border-radius: 999px;
   background: #4ade80;
   animation: pulseDot 2.2s ease-out infinite;
+}
+
+
+@keyframes meteor {
+  0%   { transform: rotate(215deg) translateX(0);       opacity: 1; }
+  70%  { transform: rotate(215deg) translateX(-400px);  opacity: 1; }
+  100% { transform: rotate(215deg) translateX(-800px);  opacity: 0; }
 }
 
 /* hide scrollbars on horizontal scroll containers */

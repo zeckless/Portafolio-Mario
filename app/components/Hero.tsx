@@ -1,6 +1,6 @@
 import { Phone, MapPin } from "lucide-react";
-import Image from "next/image";
 import { GithubIcon, LinkedinIcon } from "./BrandIcons";
+import AvatarModal from "./AvatarModal";
 import CopyEmailButton from "./CopyEmailButton";
 
 const EMAIL = "mario.opazo@ug.uchile.cl";
@@ -36,15 +36,7 @@ export default function Hero() {
           aria-hidden
           className="absolute -inset-1.5 rounded-full bg-[radial-gradient(closest-side,rgba(255,180,80,0.45),transparent)] blur-md"
         />
-        <div className="relative h-16 w-16 rounded-full overflow-hidden ring-1 ring-white/10 bg-neutral-800">
-          <Image
-            src="/Imagen.png"
-            alt="Mario Opazo"
-            fill
-            className="object-cover object-top"
-            priority
-          />
-        </div>
+        <AvatarModal />
       </div>
 
       <div className="space-y-1">
@@ -52,10 +44,10 @@ export default function Hero() {
           Mario Opazo
         </h1>
         <p className="subtle-text max-w-md leading-relaxed">
-          Soy estudiante de Ingeniería Civil en Computación en la Universidad de Chile.
+          Estudiante de Ingeniería Civil en Computación en la Universidad de Chile.
         </p>
         <p className="subtle-text max-w-md leading-relaxed">
-          Trabajo principalmente en backend, fullstack y desarrollo de videojuegos.
+          Desarrollo aplicaciones web enfocado en backend, frontend y soluciones fullstack.
         </p>
       </div>
 
