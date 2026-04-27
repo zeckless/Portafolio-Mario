@@ -241,6 +241,14 @@ html.light span[class*="bg-white\\/10"] {
   background-color: rgba(0, 0, 0, 0.10) !important;
 }
 
+/* Hero social & email icon buttons hover fix in light mode */
+/* (hover:text-white + hover:bg-white/5 are invisible on light background) */
+html.light header nav a:hover,
+html.light header nav button:hover {
+  color: #111113 !important;
+  background-color: rgba(0, 0, 0, 0.06) !important;
+}
+
 /* ─── NAVBAR ─────────────────────────────────────────────── */
 .navbar-pill {
   border-radius: 999px;
