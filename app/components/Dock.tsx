@@ -1,17 +1,6 @@
 "use client";
 
-import {
-  BookOpen,
-  Code2,
-  Layers,
-  Mail,
-  Moon,
-  Sun,
-  User,
-  Volume2,
-  VolumeX,
-} from "lucide-react";
-import { useState } from "react";
+import { BookOpen, Code2, Layers, Mail, User } from "lucide-react";
 
 type DockItem = {
   label: string;
@@ -28,9 +17,6 @@ const items: DockItem[] = [
 ];
 
 export default function Dock() {
-  const [dark, setDark] = useState(true);
-  const [muted, setMuted] = useState(true);
-
   return (
     <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50">
       <div className="card !rounded-full px-2 py-1.5 flex items-center gap-0.5 shadow-2xl shadow-black/40">
@@ -53,34 +39,6 @@ export default function Dock() {
             <Icon size={16} strokeWidth={1.7} />
           </a>
         ))}
-
-        <span className="mx-1 h-5 w-px bg-white/10" />
-
-        <button
-          onClick={() => setDark((d) => !d)}
-          className="h-9 w-9 inline-flex items-center justify-center rounded-full text-neutral-400 hover:text-white hover:bg-white/10 transition"
-          aria-label="Cambiar tema"
-          title="Cambiar tema"
-        >
-          {dark ? (
-            <Moon size={16} strokeWidth={1.7} />
-          ) : (
-            <Sun size={16} strokeWidth={1.7} />
-          )}
-        </button>
-
-        <button
-          onClick={() => setMuted((m) => !m)}
-          className="h-9 w-9 inline-flex items-center justify-center rounded-full text-neutral-400 hover:text-white hover:bg-white/10 transition"
-          aria-label="Sonido"
-          title="Sonido"
-        >
-          {muted ? (
-            <VolumeX size={16} strokeWidth={1.7} />
-          ) : (
-            <Volume2 size={16} strokeWidth={1.7} />
-          )}
-        </button>
       </div>
     </div>
   );

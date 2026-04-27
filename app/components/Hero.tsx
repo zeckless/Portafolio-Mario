@@ -1,5 +1,8 @@
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Phone, MapPin } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "./BrandIcons";
+import CopyEmailButton from "./CopyEmailButton";
+
+const EMAIL = "mario.opazo@ug.uchile.cl";
 
 type Social = {
   href: string;
@@ -21,11 +24,6 @@ const socials: Social[] = [
     href: "https://www.linkedin.com/in/mario-opazo-arnaiz-16642b392/",
     label: "LinkedIn",
     icon: LinkedinIcon,
-  },
-  {
-    href: "mailto:mario.opazo@ug.uchile.cl",
-    label: "Email",
-    icon: Mail,
   },
 ];
 
@@ -72,6 +70,7 @@ export default function Hero() {
             <Icon size={18} strokeWidth={1.6} />
           </a>
         ))}
+        <CopyEmailButton email={EMAIL} variant="icon" />
         <span className="mx-2 h-5 w-px bg-white/10" />
         <span className="inline-flex items-center gap-1.5 text-xs text-neutral-400">
           <MapPin size={13} strokeWidth={1.6} />
