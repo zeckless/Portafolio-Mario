@@ -19,7 +19,7 @@ const projects: Project[] = [
     role: "Desarrollo backend y simulación",
     description:
       "Plataforma educativa de robótica. Backend en FastAPI con autenticación JWT, frontend en React + Vite y simulación con ROS2 en Docker.",
-    tags: ["FastAPI", "React", "Docker", "ROS2"],
+    tags: ["Python", "FastAPI", "React", "PostgreSQL", "Docker", "ROS2", "Tailwind"],
     gradient: "from-sky-500/30 via-cyan-500/20 to-emerald-500/10",
     href: "https://www.edurobotics.cl",
     icon: Bot,
