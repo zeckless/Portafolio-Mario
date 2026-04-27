@@ -30,7 +30,7 @@ const socials: Social[] = [
 
 export default function Hero() {
   return (
-    <header className="flex flex-col items-start gap-4 pt-14 sm:pt-20">
+    <header className="flex flex-col items-start gap-4 pt-4">
       <div className="relative">
         <div
           aria-hidden
@@ -53,7 +53,7 @@ export default function Hero() {
 
       <div className="chip mt-1">
         <span className="status-dot" />
-        Disponible para nuevos proyectos
+        Disponible para trabajar
       </div>
 
       <nav className="flex items-center gap-1 mt-2">

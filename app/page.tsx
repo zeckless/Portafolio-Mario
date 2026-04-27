@@ -1,6 +1,6 @@
 import ContactCard from "./components/ContactCard";
 import CvCard from "./components/CvCard";
-import Dock from "./components/Dock";
+
 import EducationCard from "./components/EducationCard";
 import ExperienceCard from "./components/ExperienceCard";
 import Hero from "./components/Hero";
@@ -10,7 +10,7 @@ import StackCard from "./components/StackCard";
 
 export default function Home() {
   return (
-    <main id="top" className="relative mx-auto w-full max-w-[920px] px-5 sm:px-6 pb-32">
+    <main id="top" className="relative mx-auto w-full max-w-[920px] px-5 sm:px-6 pt-24 pb-16">
       <div id="about" />
       <Hero />
 
@@ -39,7 +39,7 @@ export default function Home() {
         </div>
       </section>
 
-      <Dock />
+
     </main>
   );
 }

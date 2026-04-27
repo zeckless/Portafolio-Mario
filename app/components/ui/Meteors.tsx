@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useTheme } from "../../context/ThemeContext";
 
 interface MeteorData {
   id: number;
@@ -16,6 +17,19 @@ interface MeteorsProps {
 
 export function Meteors({ number = 20 }: MeteorsProps) {
   const [meteors, setMeteors] = useState<MeteorData[]>([]);
+  const { mode } = useTheme();
+
+  // Resolve actual theme (system → check media query)
+  const [isLight, setIsLight] = useState(false);
+  useEffect(() => {
+    if (mode === "light") {
+      setIsLight(true);
+    } else if (mode === "dark") {
+      setIsLight(false);
+    } else {
+      setIsLight(!window.matchMedia("(prefers-color-scheme: dark)").matches);
+    }
+  }, [mode]);
 
   useEffect(() => {
     setMeteors(
@@ -29,6 +43,10 @@ export function Meteors({ number = 20 }: MeteorsProps) {
     );
   }, [number]);
 
+  const dotColor      = isLight ? "rgba(30, 30, 50, 0.85)"  : "white";
+  const glowColor     = isLight ? "rgba(30, 30, 50, 0.25)"  : "rgba(255,255,255,0.4)";
+  const trailColorA   = isLight ? "rgba(30, 30, 50, 0.7)"   : "rgba(255,255,255,0.8)";
+
   return (
     <>
       {meteors.map((m) => (
@@ -41,8 +59,8 @@ export function Meteors({ number = 20 }: MeteorsProps) {
             width: "2px",
             height: "2px",
             borderRadius: "9999px",
-            backgroundColor: "white",
-            boxShadow: "0 0 6px 2px rgba(255,255,255,0.4)",
+            backgroundColor: dotColor,
+            boxShadow: `0 0 6px 2px ${glowColor}`,
             transform: "rotate(215deg)",
             pointerEvents: "none",
             animationName: "meteor",
@@ -59,7 +77,7 @@ export function Meteors({ number = 20 }: MeteorsProps) {
               transform: "translateY(-50%)",
               width: "100px",
               height: "1px",
-              background: "linear-gradient(to right, rgba(255,255,255,0.8), transparent)",
+              background: `linear-gradient(to right, ${trailColorA}, transparent)`,
             }}
           />
         </span>
@@ -67,3 +85,4 @@ export function Meteors({ number = 20 }: MeteorsProps) {
     </>
   );
 }
+
