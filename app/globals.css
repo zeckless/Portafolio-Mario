@@ -1,0 +1,129 @@
+@import "tailwindcss";
+
+:root {
+  --background: #050507;
+  --foreground: #e6e6e9;
+  --card: rgba(20, 22, 28, 0.55);
+  --card-border: rgba(255, 255, 255, 0.07);
+  --muted: #8a8a93;
+  --accent: #4f8cff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-border: var(--card-border);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-color: #050507;
+  background-image:
+    radial-gradient(
+      ellipse 80% 60% at 50% 35%,
+      rgba(46, 110, 200, 0.28) 0%,
+      rgba(46, 110, 200, 0.12) 30%,
+      rgba(5, 5, 7, 0) 70%
+    ),
+    radial-gradient(
+      ellipse 60% 40% at 50% 80%,
+      rgba(80, 180, 200, 0.18) 0%,
+      rgba(5, 5, 7, 0) 65%
+    );
+  background-attachment: fixed;
+}
+
+::selection {
+  background: rgba(79, 140, 255, 0.35);
+  color: #fff;
+}
+
+/* Card style used across the bento grid */
+.card {
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    rgba(28, 30, 38, 0.55) 0%,
+    rgba(15, 16, 20, 0.55) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 18px;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 10px 30px -15px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  transition: border-color 200ms ease, transform 200ms ease;
+}
+
+.card:hover {
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  font-size: 12px;
+  color: #c9c9cf;
+  white-space: nowrap;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 11px;
+  color: #b9b9c0;
+}
+
+.subtle-text {
+  color: var(--muted);
+}
+
+/* status dot pulse */
+@keyframes pulseDot {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(74, 222, 128, 0);
+  }
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #4ade80;
+  animation: pulseDot 2.2s ease-out infinite;
+}
+
+/* hide scrollbars on horizontal scroll containers */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
