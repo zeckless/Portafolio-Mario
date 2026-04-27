@@ -47,7 +47,7 @@ export default function Hero() {
           Estudiante de Ingeniería Civil en Computación en la Universidad de Chile.
         </p>
         <p className="subtle-text max-w-md leading-relaxed">
-          Desarrollo aplicaciones web enfocado en backend, frontend y soluciones fullstack.
+          Desarrollo web fullstack y ciencia de datos — bases de datos, minería de datos y PLN.
         </p>
       </div>
 

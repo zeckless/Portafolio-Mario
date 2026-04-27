@@ -19,6 +19,10 @@ const groups: { label: string; items: string[] }[] = [
     label: "Datos & Cloud",
     items: ["PostgreSQL", "SQLite", "Docker", "AWS", "Fly.io", "Linux"],
   },
+  // {
+  //label: "Datos & NLP",
+  //  items: ["pandas", "NumPy", "NLTK"],
+  //  },
   {
     label: "Herramientas",
     items: ["Git", "Maven", "SBT", "Pytest", "ROS2", "Godot"],

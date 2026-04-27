@@ -14,7 +14,7 @@ export default function ContactCard() {
       </div>
 
       <p className="text-sm leading-relaxed">
-        Construyendo experiencias digitales — desde APIs robustas hasta interfaces modernas.
+        Construyendo experiencias digitales — desde APIs robustas hasta soluciones con datos.
       </p>
       <p className="text-xs subtle-text mt-1">
         Si quieres colaborar o tienes una propuesta, escríbeme.

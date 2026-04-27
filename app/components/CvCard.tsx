@@ -11,7 +11,7 @@ export default function CvCard() {
       </div>
 
       <p className="text-sm leading-relaxed">
-        Estudiante de último año, enfocado en backend, sistemas distribuidos y desarrollo de videojuegos.
+        Estudiante de último año, enfocado en desarrollo web fullstack y ciencia de datos — bases de datos, minería de datos y procesamiento del lenguaje natural.
       </p>
       <p className="text-xs subtle-text mt-1">
         Español (nativo) · Inglés (intermedio).

@@ -32,6 +32,8 @@ import {
   siReactrouter,
   siBabylondotjs,
   siWebpack,
+  siPandas,
+  siNumpy,
 } from "simple-icons";
 
 type SimpleIcon = { title: string; hex: string; path: string };
@@ -70,6 +72,8 @@ const map: Record<string, SimpleIcon> = {
   "React Router": siReactrouter,
   "Babylon.js": siBabylondotjs,
   Webpack: siWebpack,
+  pandas: siPandas,
+  NumPy: siNumpy,
 };
 
 function AwsIcon({ size }: { size: number }) {
@@ -97,6 +101,7 @@ const fallbackColors: Record<string, string> = {
   AWS: "#FF9900",
   Scrum: "#0EA5E9",
   Blockly: "#5B80B7",
+  NLTK: "#154F72",
   Structlog: "#9CA3AF",
 };
 
