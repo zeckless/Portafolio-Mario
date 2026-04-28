@@ -1,18 +1,22 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Sun, Moon, Monitor } from "lucide-react";
+import { Sun, Moon, Monitor, User, BookOpen, Code2, Layers, Mail } from "lucide-react";
 import { useTheme, type ThemeMode } from "../context/ThemeContext";
 
 const navItems = [
-  { label: "Sobre mí",    href: "#about" },
-  { label: "Experiencia", href: "#experience" },
-  { label: "Proyectos",   href: "#projects" },
-  { label: "Stack",       href: "#stack" },
-  { label: "Contacto",    href: "#contact" },
+  { label: "Sobre mí",    href: "#about",      icon: User },
+  { label: "Experiencia", href: "#experience",  icon: BookOpen },
+  { label: "Proyectos",   href: "#projects",    icon: Code2 },
+  { label: "Stack",       href: "#stack",       icon: Layers },
+  { label: "Contacto",    href: "#contact",     icon: Mail },
 ];
 
-const themeOptions: { value: ThemeMode; label: string; icon: React.ComponentType<{ size?: number; strokeWidth?: number }> }[] = [
+const themeOptions: {
+  value: ThemeMode;
+  label: string;
+  icon: React.ComponentType<{ size?: number; strokeWidth?: number }>;
+}[] = [
   { value: "light",  label: "Light",  icon: Sun },
   { value: "dark",   label: "Dark",   icon: Moon },
   { value: "system", label: "System", icon: Monitor },
@@ -20,7 +24,7 @@ const themeOptions: { value: ThemeMode; label: string; icon: React.ComponentType
 
 export default function Navbar() {
   const { mode, setMode } = useTheme();
-  const [open, setOpen] = useState(false);
+  const [open, setOpen]   = useState(false);
   const [active, setActive] = useState("about");
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -39,7 +43,6 @@ export default function Navbar() {
   useEffect(() => {
     const ids = ["about", "experience", "projects", "stack", "contact"];
     const observers: IntersectionObserver[] = [];
-
     ids.forEach((id) => {
       const el = document.getElementById(id);
       if (!el) return;
@@ -50,30 +53,44 @@ export default function Navbar() {
       obs.observe(el);
       observers.push(obs);
     });
-
     return () => observers.forEach((o) => o.disconnect());
   }, []);
 
-  const ThemeIcon =
-    mode === "light" ? Sun : mode === "dark" ? Moon : Monitor;
+  const ThemeIcon = mode === "light" ? Sun : mode === "dark" ? Moon : Monitor;
 
   return (
-    <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50">
-      <div className="navbar-pill flex items-center px-1.5 py-1.5">
-        {/* Nav links */}
-        {navItems.map(({ label, href }) => {
-          const id = href.replace("#", "");
-          const isActive = active === id;
-          return (
-            <a
-              key={label}
-              href={href}
-              className={`navbar-link${isActive ? " active" : ""}`}
-            >
-              {label}
-            </a>
-          );
-        })}
+    <nav className="fixed top-3 left-1/2 -translate-x-1/2 z-50">
+      <div className="navbar-pill flex items-center px-2 py-2">
+
+        {/* ── DESKTOP: text links ── */}
+        <div className="hidden sm:flex items-center">
+          {navItems.map(({ label, href }) => {
+            const isActive = active === href.replace("#", "");
+            return (
+              <a key={label} href={href} className={`navbar-link${isActive ? " active" : ""}`}>
+                {label}
+              </a>
+            );
+          })}
+        </div>
+
+        {/* ── MOBILE: icon links ── */}
+        <div className="flex sm:hidden items-center gap-1.5">
+          {navItems.map(({ label, href, icon: Icon }) => {
+            const isActive = active === href.replace("#", "");
+            return (
+              <a
+                key={label}
+                href={href}
+                aria-label={label}
+                title={label}
+                className={`navbar-icon-btn${isActive ? " active" : ""}`}
+              >
+                <Icon size={19} strokeWidth={1.5} />
+              </a>
+            );
+          })}
+        </div>
 
         {/* Divider */}
         <span className="navbar-divider" />
@@ -107,3 +124,4 @@ export default function Navbar() {
     </nav>
   );
 }
+
